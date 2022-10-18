@@ -1,11 +1,13 @@
-import { Button, StyleSheet, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function NewTodo() {
   return (
     <View style={styles.container}>
       <TextInput style={styles.input} placeholder="Todo eingeben" />
-      <MaterialIcons name="add-box" size={54} color="orange" />
+      <Pressable onPress={() => alert('OK!')}>
+        <MaterialIcons name="add-box" size={54} color="orange" />
+      </Pressable>
     </View>
   );
 }
