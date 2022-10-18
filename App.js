@@ -6,12 +6,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Todos from './components/Todos';
 import NewTodo from './components/NewTodo';
 
-const data = [
-  { id: 0, text: 'Einkaufen' },
-  { id: 1, text: 'React Native lernen' },
-  { id: 2, text: 'Sport' },
-];
-
 const storeData = async (value) => {
   try {
     const jsonValue = JSON.stringify(value);
