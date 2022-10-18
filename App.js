@@ -12,7 +12,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <FlatList
-        style={styles.list}
         data={todos}
         renderItem={({ item }) => (
           <Todo key={item.id}>{item.text}</Todo>
@@ -29,8 +28,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  list: {
     paddingTop: 30,
   },
 });
