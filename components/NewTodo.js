@@ -1,17 +1,10 @@
 // State
 // Schritt 1: useState-Hook importieren
 import { useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  TextInput,
-  Text,
-  View,
-  ProgressViewIOSComponent,
-} from 'react-native';
+import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function NewTodo(props) {
+export default function NewTodo({ onAddTodo }) {
   const [todo, setTodo] = useState('');
 
   return (
@@ -23,11 +16,10 @@ export default function NewTodo(props) {
           value={todo}
           onChangeText={(text) => setTodo(text)}
         />
-        <Pressable onPress={() => props.onAddTodo(todo)}>
+        <Pressable onPress={() => onAddTodo(todo)}>
           <MaterialIcons name="add-box" size={54} color="orange" />
         </Pressable>
       </View>
-      <Text>{todo}</Text>
     </>
   );
 }
