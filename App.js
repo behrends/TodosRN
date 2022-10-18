@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import { StyleSheet, View } from 'react-native';
@@ -23,6 +23,13 @@ const storeData = async (value) => {
 
 export default function App() {
   const [todos, setTodos] = useState(data);
+
+  // Lade Daten aus AsyncStorage
+  // beim erstmaligen Start der App
+  useEffect(() => {
+    // TODO: lade Daten
+    console.log('DATEN LADEN!!!!');
+  }, []); // <-- einmalige Ausführen
 
   function addTodo(todo) {
     const newTodo = { id: todos.length, text: todo };
