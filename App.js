@@ -11,7 +11,7 @@ const storeData = async (value) => {
     const jsonValue = JSON.stringify(value);
     await AsyncStorage.setItem('todos', jsonValue);
   } catch (e) {
-    // saving error
+    // TODO: handle saving error
   }
 };
 
@@ -20,7 +20,7 @@ const getData = async () => {
     const jsonValue = await AsyncStorage.getItem('todos');
     return jsonValue != null ? JSON.parse(jsonValue) : [];
   } catch (e) {
-    // error reading value
+    // TODO: handle error reading value
   }
 };
 
