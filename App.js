@@ -5,9 +5,9 @@ import Todo from './components/Todo';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Todo id={1}>Einkaufen</Todo>
-      <Todo id={2}>React Native lernen</Todo>
-      <Todo id={3}>Sport</Todo>
+      <Todo>Einkaufen</Todo>
+      <Todo>React Native lernen</Todo>
+      <Todo>Sport</Todo>
       <StatusBar style="auto" />
     </View>
   );

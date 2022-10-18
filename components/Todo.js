@@ -1,9 +1,7 @@
 import { StyleSheet, Text } from 'react-native';
 
-export default function Todo({ children, id }) {
-  const todoText = `${id} — ${children}`;
-
-  return <Text style={styles.text}>{todoText}</Text>;
+export default function Todo({ children }) {
+  return <Text style={styles.text}>{children}</Text>;
 }
 
 const styles = StyleSheet.create({
