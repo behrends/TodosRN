@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import { StyleSheet, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Todos from './components/Todos';
 import NewTodo from './components/NewTodo';
 
@@ -11,6 +12,15 @@ const data = [
   { id: 2, text: 'Sport' },
 ];
 
+const storeData = async (value) => {
+  try {
+    const jsonValue = JSON.stringify(value);
+    await AsyncStorage.setItem('todos', jsonValue);
+  } catch (e) {
+    // saving error
+  }
+};
+
 export default function App() {
   const [todos, setTodos] = useState(data);
 
@@ -18,6 +28,7 @@ export default function App() {
     const newTodo = { id: todos.length, text: todo };
     const newTodos = [...todos, newTodo];
     setTodos(newTodos);
+    storeData(newTodos);
   }
 
   return (
