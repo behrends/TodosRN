@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import Todo from './components/Todo';
-import MyTodo from './components/MyTodo';
 
 export default function App() {
   return (
@@ -9,9 +8,6 @@ export default function App() {
       <Todo text="Einkaufen" course="TIF20A" />
       <Todo text="React Native lernen" />
       <Todo text="Sport" />
-      <MyTodo todoText="Mittagspause" />
-      <MyTodo todoText="Chillen" />
-      <MyTodo todoText="keine Ahnung" />
       <StatusBar style="auto" />
     </View>
   );
