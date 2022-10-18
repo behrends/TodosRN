@@ -7,8 +7,8 @@ const todos = ['Einkaufen', 'React Native lernen', 'Sport'];
 export default function App() {
   return (
     <View style={styles.container}>
-      {todos.map((todo) => (
-        <Todo>{todo}</Todo>
+      {todos.map((todo, index) => (
+        <Todo key={index}>{todo}</Todo>
       ))}
       <StatusBar style="auto" />
     </View>
