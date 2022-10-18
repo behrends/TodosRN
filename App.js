@@ -21,14 +21,22 @@ const storeData = async (value) => {
   }
 };
 
+const getData = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('todos');
+    return jsonValue != null ? JSON.parse(jsonValue) : [];
+  } catch (e) {
+    // error reading value
+  }
+};
+
 export default function App() {
-  const [todos, setTodos] = useState(data);
+  const [todos, setTodos] = useState([]);
 
   // Lade Daten aus AsyncStorage
   // beim erstmaligen Start der App
   useEffect(() => {
-    // TODO: lade Daten
-    console.log('DATEN LADEN!!!!');
+    loadTodos();
   }, []); // <-- einmalige Ausführen
 
   function addTodo(todo) {
@@ -36,6 +44,11 @@ export default function App() {
     const newTodos = [...todos, newTodo];
     setTodos(newTodos);
     storeData(newTodos);
+  }
+
+  async function loadTodos() {
+    const myTodos = await getData();
+    setTodos(myTodos);
   }
 
   return (
