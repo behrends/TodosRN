@@ -1,18 +1,23 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import { StyleSheet, View } from 'react-native';
 import Todos from './components/Todos';
 import NewTodo from './components/NewTodo';
 
-const todos = [
+const data = [
   { id: 0, text: 'Einkaufen' },
   { id: 1, text: 'React Native lernen' },
   { id: 2, text: 'Sport' },
 ];
 
 export default function App() {
+  const [todos, setTodos] = useState(data);
+
   function addTodo(todo) {
-    alert(todo);
+    const newTodo = { id: todos.length, text: todo };
+    const newTodos = [...todos, newTodo];
+    setTodos(newTodos);
   }
 
   return (
