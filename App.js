@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    color: 'blue',
+    width: '100%',
+    paddingHorizontal: 10,
+    marginBottom: 5,
   },
 });
