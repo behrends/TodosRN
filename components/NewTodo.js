@@ -7,10 +7,11 @@ import {
   TextInput,
   Text,
   View,
+  ProgressViewIOSComponent,
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function NewTodo() {
+export default function NewTodo(props) {
   const [todo, setTodo] = useState('');
 
   return (
@@ -22,7 +23,7 @@ export default function NewTodo() {
           value={todo}
           onChangeText={(text) => setTodo(text)}
         />
-        <Pressable onPress={() => alert(todo)}>
+        <Pressable onPress={() => props.onAddTodo(todo)}>
           <MaterialIcons name="add-box" size={54} color="orange" />
         </Pressable>
       </View>

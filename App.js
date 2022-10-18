@@ -11,9 +11,13 @@ const todos = [
 ];
 
 export default function App() {
+  function addTodo(todo) {
+    alert(todo);
+  }
+
   return (
     <View style={styles.container}>
-      <NewTodo />
+      <NewTodo onAddTodo={addTodo} />
       <Todos todos={todos} />
       <StatusBar style="auto" />
     </View>
