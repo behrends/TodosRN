@@ -5,15 +5,7 @@ import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function NewTodo() {
-  // Schritt 2: initialen Zustand definieren
-  // --> Parameter im useState-Aufruf
-  // --> liefert ein Array zurück
-  // --> Zustand ist erstes Element im Array
-  // --> Änderungsfunktion für Zustand
-  // (--> zweites Element im Array)
-  const res = useState(''); // '' initial
-  const todo = res[0];
-  const setTodo = res[1];
+  const [todo, setTodo] = useState('');
 
   return (
     <View style={styles.container}>
