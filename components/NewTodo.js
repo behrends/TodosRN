@@ -1,10 +1,11 @@
 import { Button, StyleSheet, TextInput, View } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function NewTodo() {
   return (
     <View style={styles.container}>
       <TextInput style={styles.input} placeholder="Todo eingeben" />
-      <Button title="Speichern" />
+      <MaterialIcons name="add-box" size={54} color="orange" />
     </View>
   );
 }
