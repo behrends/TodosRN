@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import { StyleSheet, View } from 'react-native';
 import Todos from './components/Todos';
+import NewTodo from './components/NewTodo';
 
 const todos = [
   { id: 0, text: 'Einkaufen' },
@@ -12,6 +13,7 @@ const todos = [
 export default function App() {
   return (
     <View style={styles.container}>
+      <NewTodo />
       <Todos todos={todos} />
       <StatusBar style="auto" />
     </View>
