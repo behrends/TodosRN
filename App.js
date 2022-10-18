@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import Todo from './components/Todo';
 
+const todos = ['Einkaufen', 'React Native lernen', 'Sport'];
+
 export default function App() {
   return (
     <View style={styles.container}>
