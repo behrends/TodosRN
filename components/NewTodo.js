@@ -1,8 +1,11 @@
-import { StyleSheet, TextInput } from 'react-native';
+import { Button, StyleSheet, TextInput } from 'react-native';
 
 export default function NewTodo() {
   return (
-    <TextInput style={styles.input} placeholder="Todo eingeben" />
+    <>
+      <TextInput style={styles.input} placeholder="Todo eingeben" />
+      <Button title="Speichern" />
+    </>
   );
 }
 
