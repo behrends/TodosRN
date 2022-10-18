@@ -1,7 +1,15 @@
 import { StyleSheet, Text } from 'react-native';
 
 export default function Todo(props) {
-  return <Text style={styles.text}>{props.children}</Text>;
+  // Destrukturierung
+  const { children, id } = props;
+  // …entspricht folgenden Zeilen
+  // const children = props.children;
+  // const id = props.id;
+
+  const todoText = `${id} — ${children}`;
+
+  return <Text style={styles.text}>{todoText}</Text>;
 }
 
 const styles = StyleSheet.create({
