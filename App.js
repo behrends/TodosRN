@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
-import { FlatList, StyleSheet, View } from 'react-native';
-import Todo from './components/Todo';
+import { StyleSheet, View } from 'react-native';
+import Todos from './components/Todos';
 
 const todos = [
   { id: 0, text: 'Einkaufen' },
@@ -12,12 +12,7 @@ const todos = [
 export default function App() {
   return (
     <View style={styles.container}>
-      <FlatList
-        data={todos}
-        renderItem={({ item }) => (
-          <Todo key={item.id}>{item.text}</Todo>
-        )}
-      />
+      <Todos todos={todos} />
       <StatusBar style="auto" />
     </View>
   );
