@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import Constants from 'expo-constants';
 import Todos from '../components/Todos';
 import NewTodo from '../components/NewTodo';
 import Storage from '../lib/storage';
@@ -31,7 +29,6 @@ export default function Home() {
     <View style={styles.container}>
       <NewTodo onAddTodo={addTodo} />
       <Todos todos={todos} />
-      <StatusBar style="auto" />
     </View>
   );
 }
@@ -42,6 +39,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
   },
 });
