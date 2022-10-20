@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import Todo from './Todo';
 
 export default function Todos(props) {
@@ -8,6 +8,14 @@ export default function Todos(props) {
       data={props.todos}
       renderItem={({ item }) => (
         <Todo key={item.id}>{item.text}</Todo>
+      )}
+      ItemSeparatorComponent={() => (
+        <View
+          style={{
+            height: StyleSheet.hairlineWidth,
+            backgroundColor: '#CCC',
+          }}
+        />
       )}
     />
   );

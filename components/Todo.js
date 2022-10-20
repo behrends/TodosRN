@@ -29,8 +29,7 @@ export default function Todo({ children }) {
 const styles = StyleSheet.create({
   text: {
     fontSize: 24,
-    paddingHorizontal: 10,
-    marginBottom: 5,
+    padding: 10,
   },
   lightThemeText: {
     color: 'black',
