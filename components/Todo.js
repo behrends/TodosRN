@@ -1,14 +1,28 @@
-import { StyleSheet, Text, useColorScheme } from 'react-native';
+import { useState } from 'react';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  useColorScheme,
+} from 'react-native';
 
 export default function Todo({ children }) {
+  const [done, toggleDone] = useState(false);
+
   const colorScheme = useColorScheme();
   const themeTextStyle =
     colorScheme === 'light'
       ? styles.lightThemeText
       : styles.darkThemeText;
 
+  const doneStyle = done ? styles.todoDone : null;
+
   return (
-    <Text style={[styles.text, themeTextStyle]}>{children}</Text>
+    <Pressable onPress={() => toggleDone(!done)}>
+      <Text style={[styles.text, themeTextStyle, doneStyle]}>
+        {children}
+      </Text>
+    </Pressable>
   );
 }
 
@@ -26,5 +40,8 @@ const styles = StyleSheet.create({
   darkThemeText: {
     color: 'white',
     backgroundColor: 'black',
+  },
+  todoDone: {
+    textDecorationLine: 'line-through',
   },
 });
