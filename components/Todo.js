@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   todoDone: {
+    color: '#CCC',
     textDecorationLine: 'line-through',
   },
 });
