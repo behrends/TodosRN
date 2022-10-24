@@ -6,8 +6,8 @@ import {
   useColorScheme,
 } from 'react-native';
 
-export default function Todo({ children }) {
-  const [done, toggleDone] = useState(false);
+export default function Todo({ todo, toggleTodo }) {
+  const [done, setDone] = useState(todo.done);
 
   const colorScheme = useColorScheme();
   const themeTextStyle =
@@ -17,10 +17,14 @@ export default function Todo({ children }) {
 
   const doneStyle = done ? styles.todoDone : null;
 
+  function changeTodo() {
+    toggleTodo();
+    setDone(!done);
+  }
   return (
-    <Pressable onPress={() => toggleDone(!done)}>
+    <Pressable onPress={() => changeTodo(!done)}>
       <Text style={[styles.text, themeTextStyle, doneStyle]}>
-        {children}
+        {todo.text}
       </Text>
     </Pressable>
   );

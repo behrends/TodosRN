@@ -14,10 +14,17 @@ export default function Home() {
   }, []); // <-- einmalige Ausführen
 
   function addTodo(todo) {
-    const newTodo = { id: todos.length, text: todo };
+    const newTodo = { id: todos.length, text: todo, done: false };
     const newTodos = [...todos, newTodo];
     setTodos(newTodos);
     Storage.storeData(newTodos);
+  }
+
+  function toggleTodo(id) {
+    const index = todos.findIndex((todo) => todo.id === id);
+    todos[index].done = !todos[index].done;
+    setTodos(todos);
+    Storage.storeData(todos);
   }
 
   async function loadTodos() {
@@ -28,7 +35,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <NewTodo onAddTodo={addTodo} />
-      <Todos todos={todos} />
+      <Todos todos={todos} toggleTodo={toggleTodo} />
     </View>
   );
 }

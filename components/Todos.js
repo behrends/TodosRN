@@ -1,13 +1,17 @@
 import { FlatList, StyleSheet, View } from 'react-native';
 import Todo from './Todo';
 
-export default function Todos(props) {
+export default function Todos({ todos, toggleTodo }) {
   return (
     <FlatList
       style={styles.list}
-      data={props.todos}
+      data={todos}
       renderItem={({ item }) => (
-        <Todo key={item.id}>{item.text}</Todo>
+        <Todo
+          key={item.id}
+          toggleTodo={() => toggleTodo(item.id)}
+          todo={item}
+        />
       )}
       ItemSeparatorComponent={() => (
         <View
