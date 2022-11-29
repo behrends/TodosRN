@@ -11,7 +11,7 @@ export default function Home() {
   // beim erstmaligen Start der App
   useEffect(() => {
     loadTodos();
-  }, []); // <-- einmalige Ausführen
+  }, []); // [] bedeutet hier einmalige Ausführung
 
   function addTodo(todo) {
     const newTodo = { id: todos.length, text: todo, done: false };

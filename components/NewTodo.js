@@ -1,22 +1,29 @@
 // State
 // Schritt 1: useState-Hook importieren
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function NewTodo({ onAddTodo }) {
   const [todo, setTodo] = useState('');
+  const input = useRef(null);
 
   return (
     <>
       <View style={styles.container}>
         <TextInput
+          ref={input}
           style={styles.input}
           placeholder="Todo eingeben"
           value={todo}
           onChangeText={(text) => setTodo(text)}
         />
-        <Pressable onPress={() => onAddTodo(todo)}>
+        <Pressable
+          onPress={() => {
+            onAddTodo(todo);
+            input.current.clear();
+          }}
+        >
           <MaterialIcons name="add-box" size={54} color="orange" />
         </Pressable>
       </View>
