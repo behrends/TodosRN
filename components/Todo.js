@@ -8,12 +8,7 @@ import {
 
 export default function Todo({ todo, toggleTodo }) {
   const [done, setDone] = useState(todo.done);
-
-  const colorScheme = useColorScheme();
-  const themeTextStyle =
-    colorScheme === 'light'
-      ? styles.lightThemeText
-      : styles.darkThemeText;
+  const theme = useColorScheme();
 
   const doneStyle = done ? styles.todoDone : null;
 
@@ -23,7 +18,7 @@ export default function Todo({ todo, toggleTodo }) {
   }
   return (
     <Pressable onPress={() => changeTodo(!done)}>
-      <Text style={[styles.text, themeTextStyle, doneStyle]}>
+      <Text style={[styles.text, styles[theme], doneStyle]}>
         {todo.text}
       </Text>
     </Pressable>
@@ -35,13 +30,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     padding: 10,
   },
-  lightThemeText: {
+  light: {
     color: 'black',
     backgroundColor: 'white',
   },
-  darkThemeText: {
+  dark: {
     color: 'white',
-    backgroundColor: 'black',
+    backgroundColor: '#666',
   },
   todoDone: {
     color: '#CCC',

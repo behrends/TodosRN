@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useColorScheme, StyleSheet, View } from 'react-native';
 import Todos from '../components/Todos';
 import NewTodo from '../components/NewTodo';
 import Storage from '../lib/storage';
 
 export default function Home() {
   const [todos, setTodos] = useState([]);
+  const theme = useColorScheme();
 
   // Lade Daten aus AsyncStorage
   // beim erstmaligen Start der App
@@ -33,7 +34,7 @@ export default function Home() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, styles[theme]]}>
       <NewTodo onAddTodo={addTodo} />
       <Todos todos={todos} toggleTodo={toggleTodo} />
     </View>
@@ -43,8 +44,13 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  light: {
+    backgroundColor: '#fff',
+  },
+  dark: {
+    backgroundColor: '#ccc',
   },
 });
