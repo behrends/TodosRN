@@ -1,7 +1,13 @@
 // State
 // Schritt 1: useState-Hook importieren
 import { useRef, useState } from 'react';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function NewTodo({ onAddTodo }) {
@@ -34,15 +40,14 @@ export default function NewTodo({ onAddTodo }) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
     alignItems: 'center',
+    margin: 10,
   },
   input: {
-    width: '80%',
+    flex: 1,
     borderWidth: 1,
     borderRadius: 20,
     padding: 10,
-    marginBottom: 10,
     fontSize: 24,
   },
 });
